@@ -193,7 +193,7 @@ public class RasterDisplay
      * @param mem      A reference to the main memory.
      * @param colorRam The color RAM.
      */
-    RasterDisplay(
+    protected RasterDisplay(
             final Vic vic,
             final Memory mem,
             final byte[] colorRam,
@@ -661,8 +661,8 @@ public class RasterDisplay
         if (oldGfx != null) {
             oldGfx.dispose();
         } else
-            // We had no previous graphics object, so this must be the very first
-            // paint.  Start the raster thread.
+        // We had no previous graphics object, so this must be the very first
+        // paint.  Start the raster thread.
         {
             this._clockId.reschedule();
         }
