@@ -300,6 +300,7 @@ public class RasterDisplay
             this._clockId.unschedule();
 
             while (!this._repaintThread.isInterrupted()) {
+                System.out.println("starting frame");
                 this._currentVideoMode.startFrame(
                         this._characterSetAdr,
                         this._videoRamAddress,
@@ -322,6 +323,7 @@ public class RasterDisplay
      * RASTER FASTER.  This is an example for really *hot* code performance-wise.
      */
     private void drawFrame() {
+        System.out.println("Drawing frame");
         final int rasterMax =
                 FRAME_VERT +
                         INNER_VERT +
@@ -360,6 +362,7 @@ public class RasterDisplay
                 OVERALL_H,
                 this._screen);
 
+        System.out.println("gdraw");
         // ...and bang out the data to where the sun always shines.
         this._graphics.drawImage(
                 this._bufferedImage,
